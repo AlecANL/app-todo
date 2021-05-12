@@ -1,0 +1,55 @@
+.subTaskModal.is-active .subTask-layer {
+  display: block;
+}
+.subTaskModal.is-active .subTaskModal-content {
+  transform: translateY(0);
+}
+.subTask-layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(51, 51, 51, 0.705);
+  display: none;
+}
+.subTaskModal-content {
+  background-color: var(--just-white);
+  position: absolute;
+  top: 20%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-inline-start: 1rem;
+  padding-inline-end: 1rem;
+  padding-block-start: 1rem;
+  border-start-start-radius: 0.5rem;
+  border-start-end-radius: 0.5rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in;
+  z-index: 1000000;
+}
+.subTaskModal-content .heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.subTaskModal-content .heading button {
+  border: none;
+  background-color: transparent;
+  font-size: 1.2rem;
+  color: var(--soft-blue);
+}
+.subTaskModal-content .heading button i {
+  pointer-events: none;
+}
+.task-description .taskItem {
+  padding-inline-start: 0;
+}
+
+.subTasks-section button {
+  border: none;
+  font: var(--body2Base);
+  color: var(--grey);
+  background-color: transparent;
+}

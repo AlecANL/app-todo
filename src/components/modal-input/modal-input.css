@@ -1,0 +1,98 @@
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(51, 51, 51, 0.74);
+}
+.modal-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-inline-start: 1rem;
+  padding-inline-end: 1rem;
+  background-color: var(--just-white);
+  border-start-end-radius: 0.5rem;
+  border-start-start-radius: 0.5rem;
+
+  opacity: 1;
+  z-index: 1000000;
+}
+.modal-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block-start: 1.5rem;
+  padding-block-end: 1rem;
+}
+.modal-descriptionAction {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modal-form {
+  padding-block-start: 1rem;
+}
+.modal-input {
+  box-sizing: border-box;
+  inline-size: 100%;
+  outline: none;
+  border: none;
+}
+.buttonCalendar {
+  padding: 0.6rem;
+  background: none;
+  border: 1px solid #8f8f8f;
+  border-radius: 0.5rem;
+  color: #8f8f8f;
+}
+.buttonCalendar span {
+  margin-inline-start: 0.5rem;
+}
+.modal-type-task {
+  position: relative;
+  font-size: 14px;
+  padding: 0.6rem;
+  border: 1px solid #8f8f8f;
+  border-radius: 0.5rem;
+}
+.modal-type-task span {
+  margin-inline-start: 15px;
+}
+.modal-type-task::before {
+  content: '';
+  position: absolute;
+  inline-size: 10px;
+  block-size: 10px;
+  background: #fe8c85;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.button-form {
+  padding: 0.6rem;
+  border-radius: 100%;
+  border: none;
+  background-color: var(--soft-blue);
+  color: var(--just-white);
+  filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.25));
+}
+.button-form i {
+  font-size: 1rem;
+  margin-block-start: 1rem;
+}
+.button-form:active {
+  transform: scale(0.98);
+}
+.button-form:disabled {
+  opacity: 0.5;
+}
+.ellipsis {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

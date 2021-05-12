@@ -1,0 +1,7 @@
+.day {
+  padding: 0.7rem;
+}
+.day:hover {
+  background-color: var(--soft-blue);
+  color: var(--just-white);
+}

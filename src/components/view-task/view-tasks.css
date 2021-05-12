@@ -1,0 +1,23 @@
+.viewTask {
+  padding-inline-start: 1rem;
+  padding-inline-end: 1rem;
+  padding-block-start: 1rem;
+  padding-block-end: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  font: var(--body2Bold);
+  box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.04);
+}
+
+.viewTask-logo i {
+  font-size: 1.2rem;
+}
+.is-green {
+  color: #028526;
+}
+.is-blue {
+  color: #4081e3;
+}
+.is-purpple {
+  color: #6830c1;
+}
