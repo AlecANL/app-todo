@@ -10,10 +10,10 @@ export function TaskType({ title, history }) {
     history.push('/todos');
   }
   return (
-    <li className="taskType" onClick={handleTaskType}>
+    <div className="taskType" onClick={handleTaskType}>
       <div className="taskType-title">
         <span>{title}</span>
       </div>
-    </li>
+    </div>
   );
 }

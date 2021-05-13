@@ -1,5 +1,5 @@
 import React from 'react';
-import { ViewTask } from '../view-task/ViewTask';
+import TaskMenuItem from '../task-menu-item/TaskMenuItem';
 import './task-menu.css';
 
 function TaskMenu() {
@@ -25,7 +25,7 @@ function TaskMenu() {
       <div className="wrapper">
         <div className="taskMenu-content">
           {listData.map((taskView, i) => (
-            <ViewTask {...taskView} key={i} />
+            <TaskMenuItem {...taskView} key={i} />
           ))}
         </div>
       </div>

@@ -1,4 +1,4 @@
-.viewTask {
+.taskMenuItem {
   padding-inline-start: 1rem;
   padding-inline-end: 1rem;
   padding-block-start: 1rem;
@@ -7,9 +7,10 @@
   gap: 0.5rem;
   font: var(--body2Bold);
   box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
 }
 
-.viewTask-logo i {
+.taskMenuItem-logo i {
   font-size: 1.2rem;
 }
 .is-green {

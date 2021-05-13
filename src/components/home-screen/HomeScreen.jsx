@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header } from '../header/Header';
 import TaskMenu from '../task-menu/TaskMenu';
-import { ListWrapperTask } from '../list-class-task/wrapper/ListWrapperTask';
+import MenuSectionTask from '../section-task/menu-section-task/MenuSectionTask';
 import logo from '../../assets/logo.svg';
 
 function HomeScreen({ history }) {
@@ -9,7 +9,7 @@ function HomeScreen({ history }) {
     <section>
       <Header title="Lista de tareas" logo={logo} />
       <TaskMenu />
-      <ListWrapperTask history={history} />
+      <MenuSectionTask history={history} />
     </section>
   );
 }
