@@ -19,7 +19,7 @@ function MenuSectionTask({ history }) {
       <div className="wrapper">
         <div className="menuSectionTask-content">
           {dataTasks.map((typetask, i) => (
-            <ListTask key={i} id={i} {...typetask} history={history} />
+            <ListTask key={i} id={i} {...typetask} />
           ))}
         </div>
       </div>

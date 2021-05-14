@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import ViewContext from '../../contexts/ViewContext/ViewContext';
 import TodoContext from '../../contexts/TodoContext/TodoContext';
 import { Header } from '../header/Header';
@@ -6,11 +6,15 @@ import { TaskWrapper } from '../task-wrapper/TaskWrapper';
 import { TodoBanner } from '../todo-banner/TodoBanner';
 import { SubTaskModal } from '../modal-wrapper/sub-task-modal/SubTaskModal';
 import { CalendarWrapper } from '../calendar/calendar-wrapper/CalendarWrapper';
-import './handle-todo-screen.css';
+import ModalWrapper from '../modal-wrapper/ModalWrapper';
+import ModalInput from '../modal-input/ModalInput';
+import './task-screen.css';
 
 function TaskScreen() {
+  const [show, setShowModal] = useState(false);
+
   const {
-    viewState: { currentSection },
+    viewState: { taskBelongArea },
   } = useContext(ViewContext);
 
   const {
@@ -18,19 +22,28 @@ function TaskScreen() {
   } = useContext(TodoContext);
 
   const currentTasks = tasks.filter(
-    task => task.taskBelongArea === currentSection
+    task => task.taskBelongArea === taskBelongArea
   );
 
+  function handleModalTask() {
+    console.log(show);
+    setShowModal(!show);
+  }
+
   return (
-    <section className="todoScreen">
-      <Header title={currentSection} />
-      <section className="todos-section">
-        {currentTasks.length <= 0 && <TodoBanner />}
-        {currentTasks.length >= 0 && <TaskWrapper />}
-        <SubTaskModal />
-        <CalendarWrapper />
+    <>
+      <Header title={taskBelongArea} />
+      <section className="todoScreen">
+        <section className="task-section">
+          {currentTasks.length <= 0 && <TodoBanner />}
+          {currentTasks.length >= 0 && <TaskWrapper />}
+          <SubTaskModal />
+          <CalendarWrapper />
+          <ModalInput show={show} />
+          <ModalWrapper handleModalTask={handleModalTask} />
+        </section>
       </section>
-    </section>
+    </>
   );
 }
 

@@ -15,11 +15,13 @@
   align-items: center;
   font: var(--body2Bold);
   background-color: var(--bg-color);
+  cursor: pointer;
 }
 .listClassType-details {
   max-block-size: 0;
   overflow: hidden;
   transition: max-block-size 0.5s;
+  /* pointer-events: none; */
 }
 /* .is-active {
   max-block-size: 500px;

@@ -5,11 +5,18 @@
   padding-block-start: 1rem;
   padding-block-end: 1rem;
   box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  /* pointer-events: none; */
 }
 .taskType-title {
   position: relative;
-  pointer-events: none;
+  /* pointer-events: none; */
   /* display: flex; */
+}
+.taskType-title a {
+  font: var(--body2Base);
+  text-decoration: none;
+  color: #333;
 }
 .taskType-title span {
   margin-inline-start: 1.375rem;

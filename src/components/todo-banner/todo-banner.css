@@ -1,9 +1,20 @@
 .todoBanner {
   position: absolute;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   top: 50%;
-  transform: translateY(-50%);
-  padding-inline-start: 1.625rem;
-  padding-inline-end: 1.625rem;
+  left: 50%;
+  inline-size: 100%;
+  transform: translate(-50%, -50%);
+  /* padding-inline-start: 1.625rem;
+  padding-inline-end: 1.625rem; */
+}
+
+.banner-screen {
+  text-align: center;
 }
 .banner-description {
   text-align: center;
@@ -19,4 +30,10 @@
 .sub-heading {
   font: var(--body2Base);
   color: #8f8f8f;
+}
+@media screen and (min-width: 768px) {
+  .banner-screen img {
+    inline-size: 40%;
+    block-size: 40%;
+  }
 }

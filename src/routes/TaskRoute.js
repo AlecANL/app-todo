@@ -11,13 +11,13 @@ import HomeScreen from '../components/home-screen/HomeScreen';
 function TaskRoute() {
   return (
     <Router>
-      <div>
+      <>
         <Switch>
           <Route exact path="/" component={HomeScreen} />
           <Route exact path="/todos" component={TaskScreen} />
           <Redirect to="/" />
         </Switch>
-      </div>
+      </>
     </Router>
   );
 }

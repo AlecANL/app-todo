@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FloatButton } from '../float-button/FloatButton';
-import { ModalInput } from '../modal-input/ModalInput';
+import './modal-wrapper.css';
 
-export function ModalWrapper() {
-  const [showModal, setShowModal] = useState(false);
-
+function ModalWrapper({ handleModalTask }) {
   return (
-    <section>
-      {showModal && <ModalInput setShowModal={setShowModal} />}
-      <FloatButton setShowModal={setShowModal} showModal={showModal} />
-    </section>
+    <div className="modalWrapper">
+      <div className="wrapper">
+        <div className="modalWrapper-content">
+          <FloatButton handleModalTask={handleModalTask} />
+        </div>
+      </div>
+    </div>
   );
 }
+export default ModalWrapper;

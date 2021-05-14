@@ -1,8 +1,4 @@
 import { createContext } from 'react';
 
-const ViewContext = createContext({
-  viewState: {
-    view: 'home',
-  },
-});
+const ViewContext = createContext();
 export default ViewContext;

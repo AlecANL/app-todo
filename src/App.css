@@ -1,4 +1,4 @@
-.App-content {
-  /* margin-inline-start: 1rem;
-  margin-inline-end: 1rem; */
+.App {
+  block-size: 100vh;
+  position: relative;
 }

@@ -5,7 +5,7 @@ import ViewContext from '../../contexts/ViewContext/ViewContext';
 import { ButtonCalendar } from '../button-calendar/ButtonCalendar';
 import './modal-input.css';
 
-export function ModalInput({ setShowModal }) {
+function ModalInput({ setShowModal }) {
   const { currentDate, setDate, dispatch } = useContext(TodoContext);
   const {
     viewState: { taskBelongArea },
@@ -13,13 +13,13 @@ export function ModalInput({ setShowModal }) {
 
   const [inputValue, setInputValue] = useState('');
 
-  function handleCloseModal() {
-    setShowModal(false);
-  }
+  // function handleCloseModal() {
+  //   setShowModal(false);
+  // }
 
-  function handleModal(e) {
-    e.stopPropagation();
-  }
+  // function handleModal(e) {
+  //   e.stopPropagation();
+  // }
 
   function handleInputValue(e) {
     const value = e.target.value;
@@ -48,8 +48,8 @@ export function ModalInput({ setShowModal }) {
   }
 
   return (
-    <section className="modal" onClick={handleCloseModal}>
-      <div className="modal-content" onClick={handleModal}>
+    <section className="modal">
+      <div className="modal-content">
         <form className="modal-form" onSubmit={handleSubmit}>
           <input
             className="modal-input"
@@ -80,3 +80,5 @@ export function ModalInput({ setShowModal }) {
     </section>
   );
 }
+
+export default ModalInput;

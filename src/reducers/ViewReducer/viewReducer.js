@@ -6,9 +6,8 @@ function ViewReducer(state, action) {
     case CHANGE_VIEW:
       return {
         ...state,
-        view: payload.view,
-        currentSection: payload.currentSection.toLowerCase(),
-        taskBelongArea: payload.currentSection.toLowerCase(),
+        taskBelongArea: payload.taskBelongArea,
+        taskArea: payload.taskArea,
       };
     default:
       return state;

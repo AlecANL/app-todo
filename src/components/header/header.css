@@ -1,6 +1,8 @@
 .header {
   color: var(--just-white);
   background-color: var(--soft-blue);
+  position: sticky;
+  top: 0;
 }
 .header-content {
   display: flex;

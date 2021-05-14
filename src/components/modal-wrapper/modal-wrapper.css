@@ -1,0 +1,10 @@
+.modalWrapper-content {
+  block-size: 6.25rem;
+  position: relative;
+}
+.modalWrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
