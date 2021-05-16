@@ -31,3 +31,9 @@ body {
 img {
   max-inline-size: 100%;
 }
+.ellipsis {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

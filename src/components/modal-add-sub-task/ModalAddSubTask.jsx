@@ -1,29 +1,24 @@
-import React, { useContext } from 'react';
-import { addTask } from '../../actions/TodoActions/TodoActions';
-import ViewContext from '../../contexts/ViewContext/ViewContext';
+import { useContext } from 'react';
+import TodoContext from '../../contexts/TodoContext/TodoContext';
 import { useForm } from '../../hooks/useForm';
 import { ButtonCalendar } from '../button-calendar/ButtonCalendar';
-import { TagTask } from '../tag-task/TagTask';
-import './modal-input.css';
+import { addSubTask } from '../../actions/TodoActions/TodoActions';
 
-function ModalInput({ show, handleModalTask }) {
-  const { inputValue, handleInputValue, createTask, sendForm, currentDate } =
-    useForm();
-
-  const {
-    viewState: { taskBelongArea },
-  } = useContext(ViewContext);
+function ModalAddSubTask({ show }) {
+  const { inputValue, handleInputValue, createSubTask, sendForm } = useForm();
+  const { currentDate, setOpenSubTaskModal, currentTask } =
+    useContext(TodoContext);
 
   function handleCloseModal() {
-    handleModalTask();
+    setOpenSubTaskModal(false);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    const task = createTask();
-    sendForm(task, addTask);
-    handleModalTask();
-    console.log(task);
+    const subTask = createSubTask(currentTask);
+    sendForm(subTask, addSubTask);
+    // handleCloseModal();
+    console.log(subTask);
   }
 
   return (
@@ -44,7 +39,6 @@ function ModalInput({ show, handleModalTask }) {
           <div className="modal-descriptionAction">
             <ButtonCalendar {...currentDate} />
           </div>
-          <TagTask taskArea={taskBelongArea} isBorder={true} />
           <button
             className="button-form"
             type="submit"
@@ -59,4 +53,4 @@ function ModalInput({ show, handleModalTask }) {
   );
 }
 
-export default ModalInput;
+export default ModalAddSubTask;

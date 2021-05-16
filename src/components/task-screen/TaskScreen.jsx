@@ -8,9 +8,10 @@ import { SubTaskModal } from '../modal-wrapper/sub-task-modal/SubTaskModal';
 import { CalendarWrapper } from '../calendar/calendar-wrapper/CalendarWrapper';
 import ModalWrapper from '../modal-wrapper/ModalWrapper';
 import ModalInput from '../modal-input/ModalInput';
+import ModalAddSubTask from '../modal-add-sub-task/ModalAddSubTask';
 import './task-screen.css';
 
-function TaskScreen() {
+function TaskScreen({ history }) {
   const [show, setShowModal] = useState(false);
 
   const {
@@ -19,6 +20,7 @@ function TaskScreen() {
 
   const {
     store: { tasks },
+    openSubTaskModal,
   } = useContext(TodoContext);
 
   const currentTasks = tasks.filter(
@@ -26,8 +28,10 @@ function TaskScreen() {
   );
 
   function handleModalTask() {
-    console.log(show);
     setShowModal(!show);
+  }
+  if (!taskBelongArea) {
+    history.push('/');
   }
 
   return (
@@ -39,8 +43,10 @@ function TaskScreen() {
           {currentTasks.length >= 0 && <TaskWrapper />}
           <SubTaskModal />
           <CalendarWrapper />
-          <ModalInput show={show} />
+          <ModalInput show={show} handleModalTask={handleModalTask} />
+
           <ModalWrapper handleModalTask={handleModalTask} />
+          <ModalAddSubTask show={openSubTaskModal} />
         </section>
       </section>
     </>

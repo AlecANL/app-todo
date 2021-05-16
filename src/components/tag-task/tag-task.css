@@ -1,11 +1,12 @@
 .tagTask {
-  font: var(--body2Base);
-  text-transform: capitalize;
+  padding: 0.5rem;
   position: relative;
   display: flex;
   align-items: center;
   inline-size: 40%;
-  flex-shrink: 0;
+  flex: 0;
+  font: var(--body2Base);
+  text-transform: capitalize;
 }
 .tagTask span {
   margin-inline-start: 1rem;
@@ -17,4 +18,8 @@
   block-size: 10px;
   background-color: coral;
   border-radius: 50%;
+}
+.is-border {
+  border: 1px solid #8f8f8f;
+  border-radius: 0.5rem;
 }

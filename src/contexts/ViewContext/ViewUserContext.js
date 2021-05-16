@@ -1,14 +1,16 @@
 import React, { useReducer, useEffect } from 'react';
 import ViewContext from './ViewContext';
 import ViewReducer from '../../reducers/ViewReducer/viewReducer';
+const exampleStore = {
+  viewStore: {},
+};
 
+const initialValue = {
+  taskArea: JSON.parse(localStorage.getItem('view-store'))?.taskArea || '',
+  taskBelongArea:
+    JSON.parse(localStorage.getItem('view-store'))?.taskBelongArea || '',
+};
 export function ViewUserContext({ children }) {
-  const initialValue = {
-    taskArea: JSON.parse(localStorage.getItem('view-store')).taskArea || '',
-    taskBelongArea:
-      JSON.parse(localStorage.getItem('view-store')).taskBelongArea || '',
-  };
-
   const [viewState, dispatch] = useReducer(ViewReducer, initialValue);
 
   useEffect(() => {

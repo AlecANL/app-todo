@@ -1,15 +1,20 @@
 import { CalendarDay } from '../calendar-day/CalendarDay';
 import './calendar-item.css';
 
-export function CalendarItem({ currentMonth, year, paddingDays, daysInMonth }) {
+export function CalendarItem({
+  currentMonth,
+  year,
+  emptyDaysByMonth,
+  daysInMonth,
+}) {
   function buildCalendar() {
     const dateObj = {
       currentMonth,
       year,
     };
     const days = [];
-    for (let i = 1; i <= paddingDays + daysInMonth; i++) {
-      const day = i - paddingDays;
+    for (let i = 1; i <= emptyDaysByMonth + daysInMonth; i++) {
+      const day = i - emptyDaysByMonth;
       days.push(<CalendarDay key={i} day={day} {...dateObj} />);
     }
     return days;

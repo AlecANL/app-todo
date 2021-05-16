@@ -1,0 +1,6 @@
+@media screen and (min-width: 768px) {
+  .taskWrapper-content {
+    padding-inline-start: 15rem;
+    padding-inline-end: 15rem;
+  }
+}

@@ -1,18 +1,13 @@
 import { useContext } from 'react';
 import TodoContext from '../../../contexts/TodoContext/TodoContext';
-import ViewContext from '../../../contexts/ViewContext/ViewContext';
 import { TagTask } from '../../tag-task/TagTask';
 import { TaskItem } from '../../task-wrapper/task-item/TaskItem';
 import { ButtonCalendar } from '../../button-calendar/ButtonCalendar';
 import './sub-task-modal.css';
 
 export function SubTaskModal() {
-  const { show, setShowModal, taskModal, currentDate, setDate } = useContext(
-    TodoContext
-  );
-  const {
-    viewState: { taskBelongArea },
-  } = useContext(ViewContext);
+  const { show, setShowModal, setDate, setOpenSubTaskModal, currentTask } =
+    useContext(TodoContext);
 
   function handleCloseModal() {
     setShowModal(false);
@@ -22,23 +17,28 @@ export function SubTaskModal() {
       year: null,
     });
   }
+
+  function handleOpenModalSubTask() {
+    setOpenSubTaskModal(true);
+  }
+
   return (
     <section className={`subTaskModal ${show && 'is-active'}`}>
       <div className="subTask-layer"></div>
       <div className="subTaskModal-content">
         <div className="heading">
-          <TagTask taskArea={taskBelongArea} />
+          <TagTask taskArea={currentTask.taskBelongArea} />
           <button className="buttonIcon" onClick={handleCloseModal}>
             <i className="icon-closeSquare" aria-hidden="true"></i>
           </button>
         </div>
         <div className="task-description">
-          <TaskItem taskName={taskModal?.name} id={taskModal?.id} />
-          <ButtonCalendar {...currentDate} />
+          <TaskItem taskName={currentTask.taskName} id={currentTask.id} />
+          <ButtonCalendar {...currentTask.date} />
         </div>
         <div className="subTasks-section">
           <p>Subtareas</p>
-          <button>+ Añadir subtarea</button>
+          <button onClick={handleOpenModalSubTask}>+ Añadir subtarea</button>
         </div>
       </div>
     </section>

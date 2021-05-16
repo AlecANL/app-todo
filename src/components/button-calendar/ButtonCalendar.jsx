@@ -3,7 +3,6 @@ import TodoContext from '../../contexts/TodoContext/TodoContext';
 import './button-calendar.css';
 
 export function ButtonCalendar({ day, month }) {
-  console.log('call button');
   const { setShowCalendar } = useContext(TodoContext);
 
   function handleOpenCalendar() {
@@ -12,7 +11,7 @@ export function ButtonCalendar({ day, month }) {
   return (
     <button className="btn-calendar" onClick={handleOpenCalendar}>
       <i className="icon-calendar" aria-hidden="true" />
-      <span> {day || month ? `${day} ${month}` : 'Sin fecha'}</span>
+      <span> {day && month ? `${day} ${month}` : 'Sin fecha'}</span>
     </button>
   );
 }

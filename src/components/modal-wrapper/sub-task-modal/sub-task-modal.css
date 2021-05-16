@@ -12,6 +12,7 @@
   right: 0;
   background-color: rgba(51, 51, 51, 0.705);
   display: none;
+  z-index: 1000000;
 }
 .subTaskModal-content {
   background-color: var(--just-white);
@@ -29,6 +30,7 @@
   transition: transform 0.3s ease-in;
   z-index: 1000000;
 }
+
 .subTaskModal-content .heading {
   display: flex;
   justify-content: space-between;
@@ -52,4 +54,20 @@
   font: var(--body2Base);
   color: var(--grey);
   background-color: transparent;
+}
+@media screen and (min-width: 768px) {
+  .subTaskModal-content {
+    inline-size: 30%;
+    /* bottom: 10%; */
+    top: 0;
+    block-size: 500px;
+    left: 50%;
+    /* transform: translateY(200%); */
+    /* transform: translateX(-50%); */
+    transform: translate(-50%, 200%);
+    border-radius: 0.5rem;
+  }
+  .subTaskModal.is-active .subTaskModal-content {
+    transform: translate(-50%, 25%);
+  }
 }

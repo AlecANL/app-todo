@@ -1,10 +1,33 @@
-.taskItem {
+.task {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 1rem;
-  font: var(--body2Base);
   box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.04);
+  padding: 1rem;
+}
+.sub-task {
+  display: flex;
+  gap: 0.5rem;
+  margin-block-end: 0.5rem;
+}
+.taskItem-sub {
+  /* padding: 0.5rem; */
+  padding-inline-start: 0.5rem;
+  margin-block-start: 0.5rem;
+  padding-inline-end: 0.5rem;
+  margin-inline-start: 2rem;
+}
+.icon-sub,
+.date {
+  color: var(--grey);
+}
+.subTask-details {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.taskItem {
+  font: var(--body2Base);
 }
 .taskItem-title {
   display: block;
@@ -23,6 +46,7 @@
   inline-size: 1.2rem;
   block-size: 1.2rem;
   border-radius: 50%;
+  cursor: pointer;
 }
 .taskItem-label::after {
   position: absolute;
@@ -41,4 +65,8 @@
 }
 .taskItem-checked:checked + .taskItem-label::after {
   display: block;
+}
+.taskItem-description {
+  flex: 1;
+  cursor: pointer;
 }
