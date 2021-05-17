@@ -1,9 +1,9 @@
 import React, { useReducer, useEffect } from 'react';
 import ViewContext from './ViewContext';
 import ViewReducer from '../../reducers/ViewReducer/viewReducer';
-const exampleStore = {
-  viewStore: {},
-};
+// const exampleStore = {
+//   viewStore: {},
+// };
 
 const initialValue = {
   taskArea: JSON.parse(localStorage.getItem('view-store'))?.taskArea || '',

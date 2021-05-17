@@ -64,6 +64,7 @@ function TodoStore({ children }) {
   const [taskModal, setTaskModal] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false);
   const [openSubTaskModal, setOpenSubTaskModal] = useState(false);
+  const [showModalActions, setShowModalActions] = useState(false);
   const [currentDate, setDate] = useState({
     day: null,
     month: null,
@@ -91,6 +92,8 @@ function TodoStore({ children }) {
     setOpenSubTaskModal,
     currentTask,
     setCurrentTask,
+    showModalActions,
+    setShowModalActions,
   };
 
   return <TodoContext.Provider value={data}>{children}</TodoContext.Provider>;

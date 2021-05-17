@@ -2,8 +2,9 @@ import { useContext } from 'react';
 import TodoContext from '../../../contexts/TodoContext/TodoContext';
 import { TagTask } from '../../tag-task/TagTask';
 import { TaskItem } from '../../task-wrapper/task-item/TaskItem';
-import { ButtonCalendar } from '../../button-calendar/ButtonCalendar';
+import ButtonCalendar from '../../button-calendar/ButtonCalendar';
 import './sub-task-modal.css';
+import SubTaskList from '../../sub-task/sub-task-list/SubTaskList';
 
 export function SubTaskModal() {
   const { show, setShowModal, setDate, setOpenSubTaskModal, currentTask } =
@@ -38,7 +39,12 @@ export function SubTaskModal() {
         </div>
         <div className="subTasks-section">
           <p>Subtareas</p>
-          <button onClick={handleOpenModalSubTask}>+ Añadir subtarea</button>
+          {currentTask?.subTasks?.length > 0 && (
+            <SubTaskList subTasks={currentTask.subTasks} />
+          )}
+          <button className="buttonIcon" onClick={handleOpenModalSubTask}>
+            + Añadir subtarea
+          </button>
         </div>
       </div>
     </section>

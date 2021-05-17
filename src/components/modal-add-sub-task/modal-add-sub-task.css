@@ -6,7 +6,7 @@
   right: 0;
   display: none;
   background-color: rgba(51, 51, 51, 0.74);
-  z-index: 1000;
+  z-index: 1000000000000000000;
 }
 
 .modal.is-active .modal-layer {
@@ -27,7 +27,7 @@
   border-start-end-radius: 0.5rem;
   border-start-start-radius: 0.5rem;
   opacity: 1;
-  z-index: 10001;
+  z-index: 10000000000000000000000000000000;
   transform: translateY(100%);
   transition: transform 0.2s ease-in;
 }

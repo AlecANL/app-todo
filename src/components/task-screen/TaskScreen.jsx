@@ -10,6 +10,7 @@ import ModalWrapper from '../modal-wrapper/ModalWrapper';
 import ModalInput from '../modal-input/ModalInput';
 import ModalAddSubTask from '../modal-add-sub-task/ModalAddSubTask';
 import './task-screen.css';
+import ModalActions from '../modal-actions/ModalActions';
 
 function TaskScreen({ history }) {
   const [show, setShowModal] = useState(false);
@@ -44,9 +45,9 @@ function TaskScreen({ history }) {
           <SubTaskModal />
           <CalendarWrapper />
           <ModalInput show={show} handleModalTask={handleModalTask} />
-
           <ModalWrapper handleModalTask={handleModalTask} />
           <ModalAddSubTask show={openSubTaskModal} />
+          <ModalActions />
         </section>
       </section>
     </>

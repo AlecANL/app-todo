@@ -1,0 +1,100 @@
+.modalActions-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  background-color: rgba(51, 51, 51, 0.712);
+  z-index: 10;
+}
+.modalActions-content {
+  background-color: var(--just-white);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  block-size: 25.75rem;
+  padding-inline-start: 1rem;
+  padding-inline-end: 1rem;
+  border-start-start-radius: 0.5rem;
+  border-start-end-radius: 0.5rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 100;
+}
+
+.modalActions-heding {
+  display: flex;
+  justify-content: space-between;
+  padding-block-start: 1rem;
+  padding-block-end: 0.5rem;
+}
+.heading {
+  display: flex;
+  gap: 1rem;
+}
+
+.is-red {
+  background-color: rgb(255, 42, 42);
+  color: var(--just-white);
+}
+.is-yellow {
+  background-color: rgb(236, 187, 28);
+  color: var(--just-white);
+}
+.is-blue {
+  background-color: var(--soft-blue);
+  color: var(--just-white) !important;
+}
+.modalActions-view {
+  display: none;
+}
+.modalActions-view.is-active {
+  display: block;
+}
+.modalActions.is-active .modalActions-content {
+  transform: translate(0);
+}
+.modalActions.is-active .modalActions-layer {
+  display: block;
+}
+.modalActions-input {
+  inline-size: 100%;
+  box-sizing: border-box;
+  block-size: 2rem;
+  padding-inline-start: 0.5rem;
+  border: none;
+  font: var(--body2Base);
+}
+.modalActions-input::placeholder {
+  font: var(--body2Base);
+}
+.modalActions-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-block-start: 1.5rem;
+}
+.btn-add {
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  border-radius: 50%;
+}
+@media screen and (min-width: 480px) {
+  .modalActions-content {
+    inline-size: 60%;
+    left: 50%;
+    top: 50%;
+    border-radius: 0.5rem;
+    transform: translate(-50%, 100%);
+  }
+  .modalActions.is-active .modalActions-content {
+    transform: translate(-50%, -50%);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .modalActions-content {
+    inline-size: 30%;
+  }
+}

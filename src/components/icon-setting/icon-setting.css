@@ -1,0 +1,5 @@
+.buttonIcon img {
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  pointer-events: none;
+}

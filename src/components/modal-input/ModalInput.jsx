@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { addTask } from '../../actions/TodoActions/TodoActions';
 import ViewContext from '../../contexts/ViewContext/ViewContext';
+import ButtonCalendar from '../button-calendar/ButtonCalendar';
 import { useForm } from '../../hooks/useForm';
-import { ButtonCalendar } from '../button-calendar/ButtonCalendar';
 import { TagTask } from '../tag-task/TagTask';
 import './modal-input.css';
 
@@ -23,7 +23,6 @@ function ModalInput({ show, handleModalTask }) {
     const task = createTask();
     sendForm(task, addTask);
     handleModalTask();
-    console.log(task);
   }
 
   return (
@@ -43,8 +42,8 @@ function ModalInput({ show, handleModalTask }) {
         <div className="modal-description">
           <div className="modal-descriptionAction">
             <ButtonCalendar {...currentDate} />
+            <TagTask taskArea={taskBelongArea} isBorder={true} />
           </div>
-          <TagTask taskArea={taskBelongArea} isBorder={true} />
           <button
             className="button-form"
             type="submit"

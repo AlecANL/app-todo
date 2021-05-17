@@ -12,7 +12,7 @@
   right: 0;
   background-color: rgba(51, 51, 51, 0.705);
   display: none;
-  z-index: 1000000;
+  z-index: 100;
 }
 .subTaskModal-content {
   background-color: var(--just-white);
@@ -28,7 +28,7 @@
   border-start-end-radius: 0.5rem;
   transform: translateY(100%);
   transition: transform 0.3s ease-in;
-  z-index: 1000000;
+  z-index: 100;
 }
 
 .subTaskModal-content .heading {

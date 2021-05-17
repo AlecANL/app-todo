@@ -33,6 +33,17 @@ export function useForm() {
     };
   }
 
+  function createTaskByEdited(task) {
+    return {
+      id: task.id,
+      date: task.date,
+      subTasks: task.subTasks,
+      taskArea: task.taskArea,
+      taskBelongArea: task.taskBelongArea,
+      taskName: task.taskName,
+    };
+  }
+
   function createSubTask({ id, taskArea, taskBelongArea }) {
     return {
       idTask: id,
@@ -56,5 +67,6 @@ export function useForm() {
     createSubTask,
     inputValue,
     currentDate,
+    createTaskByEdited,
   };
 }

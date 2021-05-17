@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import TodoContext from '../../contexts/TodoContext/TodoContext';
 import { useForm } from '../../hooks/useForm';
-import { ButtonCalendar } from '../button-calendar/ButtonCalendar';
+import ButtonCalendar from '../button-calendar/ButtonCalendar';
 import { addSubTask } from '../../actions/TodoActions/TodoActions';
 
 function ModalAddSubTask({ show }) {
@@ -17,8 +17,7 @@ function ModalAddSubTask({ show }) {
     e.preventDefault();
     const subTask = createSubTask(currentTask);
     sendForm(subTask, addSubTask);
-    // handleCloseModal();
-    console.log(subTask);
+    handleCloseModal();
   }
 
   return (
