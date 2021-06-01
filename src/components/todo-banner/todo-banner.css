@@ -19,12 +19,12 @@
 .banner-description {
   text-align: center;
 }
-.heading,
+.banner-heading,
 .sub-heading {
   margin: 0;
   margin-block-end: 0.5rem;
 }
-.heading {
+.banner-heading {
   font: var(--body1Bold);
 }
 .sub-heading {

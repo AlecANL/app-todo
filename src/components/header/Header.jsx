@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './header.css';
 
-export function Header({ title, logo }) {
+export function Header({ title, logo, children }) {
   return (
     <header className="header">
       <div className="wrapper">
@@ -17,8 +17,11 @@ export function Header({ title, logo }) {
             </Link>
             <span>{title}</span>
           </div>
+          {children}
           <div className="header-icon">
-            <i className="icon-search"></i>
+            <Link to="/search">
+              <i className="icon-search"></i>
+            </Link>
           </div>
         </div>
       </div>

@@ -9,8 +9,9 @@ import { CalendarWrapper } from '../calendar/calendar-wrapper/CalendarWrapper';
 import ModalWrapper from '../modal-wrapper/ModalWrapper';
 import ModalInput from '../modal-input/ModalInput';
 import ModalAddSubTask from '../modal-add-sub-task/ModalAddSubTask';
-import './task-screen.css';
 import ModalActions from '../modal-actions/ModalActions';
+import screen from '../../assets/screen-1.png';
+import './task-screen.css';
 
 function TaskScreen({ history }) {
   const [show, setShowModal] = useState(false);
@@ -34,13 +35,18 @@ function TaskScreen({ history }) {
   if (!taskBelongArea) {
     history.push('/');
   }
+  const banner = {
+    screen,
+    title: 'Mantén tus tareas organizadas en proyectos',
+    subTitle: 'Mantén tus tareas organizadas en proyectos',
+  };
 
   return (
     <>
       <Header title={taskBelongArea} />
       <section className="todoScreen">
         <section className="task-section">
-          {currentTasks.length <= 0 && <TodoBanner />}
+          {currentTasks.length <= 0 && <TodoBanner {...banner} />}
           {currentTasks.length >= 0 && <TaskWrapper />}
           <SubTaskModal />
           <CalendarWrapper />

@@ -43,7 +43,7 @@
   background-color: rgb(236, 187, 28);
   color: var(--just-white);
 }
-.is-blue {
+.btn-add.is-blue {
   background-color: var(--soft-blue);
   color: var(--just-white) !important;
 }

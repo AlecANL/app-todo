@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import TaskScreen from '../components/task-screen/TaskScreen';
 import HomeScreen from '../components/home-screen/HomeScreen';
+import SearchScreen from '../components/search-screen/SearchScreen';
 
 function TaskRoute() {
   return (
@@ -15,6 +16,7 @@ function TaskRoute() {
         <Switch>
           <Route exact path="/" component={HomeScreen} />
           <Route exact path="/todos" component={TaskScreen} />
+          <Route exact path="/search" component={SearchScreen} />
           <Redirect to="/" />
         </Switch>
       </>

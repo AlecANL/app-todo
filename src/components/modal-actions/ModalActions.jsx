@@ -22,7 +22,7 @@ function ModalActions() {
     sendForm(task, editTask);
   }, [currentTask]);
 
-  const [inputValue, setInputValue] = useState(currentTask.taskName);
+  const [inputValue, setInputValue] = useState(currentTask.taskName || '');
   const [show, setShow] = useState(false);
 
   function handleOnChange(e) {
