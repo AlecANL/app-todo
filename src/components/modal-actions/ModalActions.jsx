@@ -20,6 +20,7 @@ function ModalActions() {
   useEffect(() => {
     const task = createTaskByEdited(currentTask);
     sendForm(task, editTask);
+    // eslint-disable-next-line
   }, [currentTask]);
 
   const [inputValue, setInputValue] = useState(currentTask.taskName || '');
