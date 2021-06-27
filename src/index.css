@@ -21,13 +21,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  max-block-size: 100vh;
-  overflow: hidden;
+  /* max-block-size: 100vh;
+  overflow: hidden; */
 }
-.wrapper {
-  max-inline-size: 1200px;
-  margin: auto;
-}
+
 img {
   max-inline-size: 100%;
 }

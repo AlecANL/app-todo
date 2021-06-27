@@ -1,0 +1,25 @@
+.entry {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  font: var(--body2Bold);
+  box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.04);
+}
+.entry span {
+  text-transform: capitalize;
+}
+.entry i {
+  font-size: 1.5rem;
+}
+.entry:nth-child(1) i {
+  color: rgba(64, 129, 227, 1);
+}
+
+.entry:nth-child(2) i {
+  color: rgba(5, 132, 41, 1);
+}
+
+.entry:nth-child(3) i {
+  color: rgba(104, 48, 193, 1);
+}

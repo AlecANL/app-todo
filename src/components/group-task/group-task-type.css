@@ -1,0 +1,22 @@
+.groupTaskType-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--bg-color);
+  box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.04);
+}
+.groupTaskType-title span {
+  font: var(--body2Bold);
+  text-transform: capitalize;
+  pointer-events: none;
+}
+.groupTaskType-title i {
+  pointer-events: none;
+}
+.groupTaskType-list {
+  max-block-size: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  background-color: var(--just-white);
+}

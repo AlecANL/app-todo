@@ -1,3 +1,6 @@
+import './header.css';
+import Wrapper from 'components/wrapper/Wrapper';
+
 function Header({ icon, title, page = '' }) {
   function renderHeader() {
     switch (page) {
@@ -11,14 +14,22 @@ function Header({ icon, title, page = '' }) {
       default:
         return (
           <>
-            <img src={icon} alt={`${title} icon`} />
-            <span>{title}</span>
+            <div className="logo">
+              <img src={icon} alt={`${title} icon`} width={32} height={32} />
+              <span>{title}</span>
+            </div>
           </>
         );
     }
   }
 
-  return <header className="header">{renderHeader()}</header>;
+  return (
+    <header className="header">
+      <Wrapper>
+        <div className="header-content">{renderHeader()}</div>
+      </Wrapper>
+    </header>
+  );
 }
 
 export default Header;

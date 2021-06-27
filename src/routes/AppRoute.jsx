@@ -11,7 +11,7 @@ function AppRoute() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/auth" component={AuthRoute} />
-          <Route path="/task" component={Task} />
+          <Route path="/tasks" component={Task} />
           <Route path="*" component={NotFound} />
         </Switch>
       </Router>
