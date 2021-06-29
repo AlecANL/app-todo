@@ -1,8 +1,8 @@
 import './submit-button.css';
 
-function SubmitButton() {
+function SubmitButton({ submitForm }) {
   return (
-    <button className="submitButton">
+    <button className="submitButton" onClick={submitForm}>
       <i className="icon-arrowUp"></i>
     </button>
   );

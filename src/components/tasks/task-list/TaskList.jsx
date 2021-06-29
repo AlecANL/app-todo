@@ -2,9 +2,7 @@ import TaskItem from '../task-item/TaskItem';
 import './task-list.css';
 
 function TaskList({ collections }) {
-  function handleShowDetail() {
-    console.log('hello');
-  }
+  function handleShowDetail() {}
 
   return (
     <article className="collections">

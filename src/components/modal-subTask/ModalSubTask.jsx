@@ -3,9 +3,9 @@ import SubmitButton from 'components/buttons/submit-button/submitButton';
 import Modal from 'components/modal-wrapper/ModalWrapper';
 import './modal-sub-task.css';
 
-function ModalSubTask() {
+function ModalSubTask({ isShowModal }) {
   return (
-    <Modal>
+    <Modal isShowModal={isShowModal}>
       <form className="modalSubTask">
         <input
           placeholder="example., Read blog to Leonidas Esteban"

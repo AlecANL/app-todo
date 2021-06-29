@@ -2,6 +2,8 @@ import CalendarButton from 'components/buttons/calendar-button/CalendarButton';
 import Modal from 'components/modal-wrapper/ModalWrapper';
 import SubTaskList from 'components/subTasks/subTasks-list/SubTaskList';
 import TaskItem from 'components/tasks/task-item/TaskItem';
+import { useDispatch } from 'react-redux';
+import { showModalDetail, showModalSubTak } from 'redux/ui/ui.actions';
 import './task-detail.css';
 
 const fakeCollection = [
@@ -31,16 +33,26 @@ const fakeCollection = [
   },
 ];
 
-function ModalDetail() {
+function ModalDetail({ isShowModal }) {
+  const dispatch = useDispatch();
+
+  function handleCloseModal() {
+    dispatch(showModalDetail(false));
+  }
+
+  function handleShowSubTaskModal() {
+    dispatch(showModalSubTak(true));
+  }
+
   return (
-    <Modal>
+    <Modal isShowModal={isShowModal}>
       <div className="modalDetail">
         <div className="modal-header">
           <div className="typeTask">
             <div className="dot"></div>
             <span>name</span>
           </div>
-          <button className="close-button">
+          <button className="close-button" onClick={handleCloseModal}>
             <i className="icon-closeSquare"></i>
           </button>
         </div>
@@ -51,7 +63,9 @@ function ModalDetail() {
         <div className="modal-subTasks">
           <h4>SubTasks</h4>
           <SubTaskList collection={fakeCollection} />
-          <button className="subTask-button">+ add new SubTask</button>
+          <button className="subTask-button" onClick={handleShowSubTaskModal}>
+            + add new SubTask
+          </button>
         </div>
       </div>
     </Modal>

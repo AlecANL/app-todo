@@ -1,5 +1,4 @@
 .task-content {
   min-block-size: 85vh;
-  overflow-y: auto;
-  outline: 1px solid red;
+  overflow: hidden;
 }

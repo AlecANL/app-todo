@@ -1,17 +1,19 @@
 import ReactDOM from 'react-dom';
 import './modal-wrapper.css';
 
-function ModalWrapper({ children }) {
+function ModalWrapper({ children, isShowModal }) {
+  const showModal = isShowModal ? 'is-active' : '';
   return (
-    <div className="modal is-active">
+    <div className={`modal ${showModal}`}>
+      <div className="modal-layer"></div>
       <div className="modal-content ">{children}</div>
     </div>
   );
 }
 
-function Modal({ children }) {
+function Modal({ children, isShowModal }) {
   return ReactDOM.createPortal(
-    <ModalWrapper>{children}</ModalWrapper>,
+    <ModalWrapper isShowModal={isShowModal}>{children}</ModalWrapper>,
     document.getElementById('modal-root')
   );
 }

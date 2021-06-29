@@ -1,7 +1,12 @@
 import './header.css';
 import Wrapper from 'components/wrapper/Wrapper';
+import { useHistory } from 'react-router-dom';
 
 function Header({ icon, title, page = '' }) {
+  const history = useHistory();
+  function handleBackHome() {
+    history.goBack();
+  }
   function renderHeader() {
     switch (page) {
       case 'search':
@@ -15,7 +20,13 @@ function Header({ icon, title, page = '' }) {
         return (
           <>
             <div className="logo">
-              <img src={icon} alt={`${title} icon`} width={32} height={32} />
+              <img
+                src={icon}
+                alt={`${title} icon`}
+                width={32}
+                height={32}
+                onClick={handleBackHome}
+              />
               <span>{title}</span>
             </div>
           </>

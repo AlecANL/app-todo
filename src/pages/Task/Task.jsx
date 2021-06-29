@@ -1,15 +1,18 @@
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Header from 'components/header/Header';
-import IconArrowLeft from 'assets/arrow-left.svg';
 import IsEmptyScreen from 'assets/empty-screen.png';
 import Wrapper from 'components/wrapper/Wrapper';
 import EmptyCollections from 'components/empty-collections/EmptyCollections';
-import './task.css';
 import TaskList from 'components/tasks/task-list/TaskList';
 import ModalSubTask from 'components/modal-subTask/ModalSubTask';
-// import ModalForm from 'components/modal-form/ModalForm';
-// import ModalDetail from 'components/modal-detail/ModalDetail';
-// import { useCalendar } from 'hooks/useStaticCalendar';
-// import CalendarModal from 'components/calendar/calendar-modal/CalendarModal';
+import ModalForm from 'components/modal-form/ModalForm';
+import ModalDetail from 'components/modal-detail/ModalDetail';
+import CalendarModal from 'components/calendar/calendar-modal/CalendarModal';
+import FloatButton from 'components/float-button/FloatButton';
+import { showModalAddTask } from 'redux/ui/ui.actions';
+import IconArrowLeft from 'assets/arrow-left.svg';
+import './task.css';
 
 const fakeData = [
   {
@@ -34,22 +37,26 @@ const emptyScreenData = {
 };
 
 function Task() {
+  const dispatch = useDispatch();
+  const stateModals = useSelector(state => state.ui);
+
+  function handleShowModalAddTask() {
+    dispatch(showModalAddTask(true));
+  }
+
   return (
     <>
-      <Header title="person" icon={IconArrowLeft} />
+      <Header title={stateModals.currentSection} icon={IconArrowLeft} />
       <main className="task">
         <Wrapper>
           <div className="task-content">
-            {!fakeData && fakeData.length < 0 && (
-              <EmptyCollections {...emptyScreenData} />
-            )}
-            {fakeData && fakeData.length > 0 && (
-              <TaskList collections={fakeData} />
-            )}
-            {/* <ModalForm /> */}
-            {/* <ModalDetail /> */}
-            {/* <CalendarModal /> */}
-            <ModalSubTask />
+            {fakeData.length < 0 && <EmptyCollections {...emptyScreenData} />}
+            {fakeData.length > 0 && <TaskList collections={fakeData} />}
+            <ModalForm isShowModal={stateModals.showModalAddTask} />
+            <ModalDetail isShowModal={stateModals.showModalDetail} />
+            <ModalSubTask isShowModal={stateModals.showModalSubTask} />
+            <CalendarModal isShowModal={stateModals.showModalCalendar} />
+            <FloatButton isShowModal={handleShowModalAddTask} />
           </div>
         </Wrapper>
       </main>

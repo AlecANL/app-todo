@@ -1,4 +1,4 @@
-.modal {
+.modal-layer {
   position: absolute;
   top: 0;
   left: 0;
@@ -18,12 +18,14 @@
   border-start-end-radius: 0.5rem;
   background-color: var(--just-white);
   transform: translateY(100%);
+  opacity: 0;
   transition: all 0.3s ease-in-out;
 }
 .modal.is-active .modal-content {
   transform: translate(0, 0);
+  opacity: 1;
 }
-.modal.modal.is-active {
+.modal.is-active .modal-layer {
   display: block;
 }
 

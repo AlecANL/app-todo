@@ -1,21 +1,28 @@
 import Modal from 'components/modal-wrapper/ModalWrapper';
 import { useStaticCalendar } from 'hooks/useStaticCalendar';
+import { useDispatch } from 'react-redux';
+import { showModalCalendar } from 'redux/ui/ui.actions';
 import CalendarMonth from '../calendar-month/CalendarMonth';
 import './calendar-modal.css';
 
-function CalendarModal() {
+function CalendarModal({ isShowModal }) {
+  const dispatch = useDispatch();
   const { buildCalendar } = useStaticCalendar();
 
   const calendarCollection = buildCalendar({
     startCalendar: 'start_current_month',
   });
 
+  function handleCloseModal() {
+    dispatch(showModalCalendar(false));
+  }
+
   return (
-    <Modal>
+    <Modal isShowModal={isShowModal}>
       <div className="calendarModal">
         <div className="modal-header">
           <span>Set Task</span>
-          <button className="btn-calendar">
+          <button className="btn-calendar" onClick={handleCloseModal}>
             <i className="icon-closeSquare "></i>
           </button>
         </div>

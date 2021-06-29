@@ -1,6 +1,15 @@
+import { useDispatch } from 'react-redux';
+import { showModalDetail } from 'redux/ui/ui.actions';
 import './task-item.css';
 
-function TaskItem({ name, id, handleShowDetail }) {
+function TaskItem(task) {
+  const dispatch = useDispatch();
+  const { name, id } = task;
+
+  function handleShowDetail() {
+    console.log(task);
+    dispatch(showModalDetail(true));
+  }
   return (
     <li className="taskItem">
       <input className="inputCheck" type="checkbox" id={id} />

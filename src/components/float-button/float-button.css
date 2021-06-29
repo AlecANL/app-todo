@@ -1,0 +1,19 @@
+.floatButton {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--soft-blue);
+  filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.25));
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (min-width: 768px) {
+  .floatButton {
+    right: 5rem;
+    bottom: 3rem;
+    padding: 1rem;
+  }
+}

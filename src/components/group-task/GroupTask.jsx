@@ -1,6 +1,8 @@
 import Wrapper from 'components/wrapper/Wrapper';
 import { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { changeView } from 'redux/ui/ui.actions';
 import './group.css';
 
 const GroupTaskData = [
@@ -77,7 +79,15 @@ function GroupTaskType(taskType) {
 function TaskType({ name }) {
   const color = getColor();
   const history = useHistory();
+  const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   localStorage.setItem('current_section', name);
+  // }, [name]);
+
   function handleChangePage() {
+    localStorage.setItem('current_section', name);
+    dispatch(changeView(name));
     history.push('/tasks');
   }
   return (
