@@ -2,12 +2,14 @@ import CalendarButton from 'components/buttons/calendar-button/CalendarButton';
 import SubmitButton from 'components/buttons/submit-button/submitButton';
 import TagTaskButton from 'components/buttons/tag-task-button/TagTaskButton';
 import Modal from 'components/modal-wrapper/ModalWrapper';
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { showModalAddTask } from 'redux/ui/ui.actions';
 import './modal-form.css';
 
 function ModalForm({ isShowModal }) {
   const dispatch = useDispatch();
+  const uiState = useSelector(state => state.ui);
 
   function handleSubmitForm() {
     dispatch(showModalAddTask(false));
@@ -22,7 +24,7 @@ function ModalForm({ isShowModal }) {
       </form>
       <div className="modalForm-content">
         <CalendarButton />
-        <TagTaskButton />
+        <TagTaskButton name={uiState.currentSection} />
         <SubmitButton submitForm={handleSubmitForm} />
       </div>
     </Modal>

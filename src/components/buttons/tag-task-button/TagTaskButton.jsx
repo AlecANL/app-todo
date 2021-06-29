@@ -4,7 +4,7 @@ function TagTaskButton({ name }) {
   return (
     <button className="tagTask">
       <div className="dot"></div>
-      <span className="ellipsis">{name || 'Nassssme'}</span>
+      <span className="ellipsis">{name || 'Without name'}</span>
     </button>
   );
 }

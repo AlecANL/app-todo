@@ -2,6 +2,7 @@ import CalendarButton from 'components/buttons/calendar-button/CalendarButton';
 import Modal from 'components/modal-wrapper/ModalWrapper';
 import SubTaskList from 'components/subTasks/subTasks-list/SubTaskList';
 import TaskItem from 'components/tasks/task-item/TaskItem';
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { showModalDetail, showModalSubTak } from 'redux/ui/ui.actions';
 import './task-detail.css';
@@ -35,6 +36,7 @@ const fakeCollection = [
 
 function ModalDetail({ isShowModal }) {
   const dispatch = useDispatch();
+  const uiState = useSelector(state => state.ui);
 
   function handleCloseModal() {
     dispatch(showModalDetail(false));
@@ -50,7 +52,7 @@ function ModalDetail({ isShowModal }) {
         <div className="modal-header">
           <div className="typeTask">
             <div className="dot"></div>
-            <span>name</span>
+            <span>{uiState.currentSection}</span>
           </div>
           <button className="close-button" onClick={handleCloseModal}>
             <i className="icon-closeSquare"></i>
