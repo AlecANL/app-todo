@@ -1,0 +1,22 @@
+.modalSubTask input[type='text'] {
+  box-sizing: border-box;
+  inline-size: 100%;
+  padding-block-start: 0.5rem;
+  padding-block-end: 0.5rem;
+  margin-block-start: 1rem;
+  margin-block-end: 1.5rem;
+  border: none;
+  outline: none;
+  font: var(--body2Base);
+}
+input[type='text']::placeholder {
+  font: var(--body2Base);
+}
+.modalSubTask {
+  box-sizing: border-box;
+}
+.modalSubTask-content {
+  display: flex;
+  justify-content: space-between;
+  padding-block-end: 1rem;
+}

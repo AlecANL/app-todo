@@ -1,0 +1,12 @@
+.subTask-content {
+  display: flex;
+  flex-direction: column;
+}
+.subTaskItem {
+  display: flex;
+  gap: 0.5rem;
+  margin-block-end: 0.5rem;
+}
+.customCheck {
+  margin-block-start: 0.1875rem;
+}

@@ -1,3 +1,4 @@
+import Wrapper from 'components/wrapper/Wrapper';
 import { useEffect, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './group.css';
@@ -25,14 +26,18 @@ function getColor() {
 function GroupTask() {
   return (
     <section className="groupTask">
-      {GroupTaskData.map(groupTaskType => (
-        <GroupTaskType
-          key={groupTaskType.id}
-          id={groupTaskType.id}
-          name={groupTaskType.name}
-          taskTypeList={groupTaskType.taskTypeList}
-        />
-      ))}
+      <Wrapper>
+        <div className="groupTask-content">
+          {GroupTaskData.map(groupTaskType => (
+            <GroupTaskType
+              key={groupTaskType.id}
+              id={groupTaskType.id}
+              name={groupTaskType.name}
+              taskTypeList={groupTaskType.taskTypeList}
+            />
+          ))}
+        </div>
+      </Wrapper>
     </section>
   );
 }
@@ -54,7 +59,7 @@ function GroupTaskType(taskType) {
     <div className={`groupTaskType ${isActive && 'is-active'}`}>
       <div className="groupTaskType-title" onClick={handleAccordion}>
         <span>{taskType?.name}</span>
-        <i className="icon-arrowDown"></i>
+        <i className="icon-arrowLeft1"></i>
       </div>
       <div
         className="groupTaskType-list"

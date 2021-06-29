@@ -1,5 +1,4 @@
 .header {
-  outline: 1px solid red;
   position: sticky;
   top: 0;
   padding-block-start: 1rem;
@@ -23,4 +22,5 @@
 .logo span {
   color: var(--just-white);
   font: var(--body2Bold);
+  text-transform: capitalize;
 }

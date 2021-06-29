@@ -1,0 +1,21 @@
+.modalForm {
+  padding-block-start: 1rem;
+  padding-block-end: 1.5rem;
+}
+.modalForm-content {
+  /* display: flex;
+  gap: 0.5rem; */
+  display: grid;
+  column-gap: 0.5rem;
+  grid-template-columns: 6.25rem 5.625rem 1fr;
+  padding-block-end: 1rem;
+}
+.modalForm input[type='text'] {
+  box-sizing: border-box;
+  inline-size: 100%;
+  padding-inline-start: 1rem;
+  padding-inline-end: 1rem;
+  padding-block: 0.5rem;
+  border: none;
+  outline: none;
+}

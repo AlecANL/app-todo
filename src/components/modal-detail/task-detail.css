@@ -1,0 +1,31 @@
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-start: 1rem;
+}
+.modal-header .typeTask {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: capitalize;
+}
+.close-button {
+  border: none;
+  color: var(--soft-blue);
+  font-size: 1rem;
+}
+.subTask-button {
+  border: none;
+  padding-block-end: 1rem;
+}
+.taskItem {
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+.modalDetail {
+  min-block-size: 30.625rem;
+}
+.modalDetail .task .taskItem {
+  padding-inline-start: 0;
+}

@@ -5,6 +5,7 @@
   padding: 1rem;
   background-color: var(--bg-color);
   box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
 }
 .groupTaskType-title span {
   font: var(--body2Bold);
@@ -13,10 +14,15 @@
 }
 .groupTaskType-title i {
   pointer-events: none;
+  transform: rotate(0);
+  transition: transform 0.2s ease-in;
 }
 .groupTaskType-list {
   max-block-size: 0;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   background-color: var(--just-white);
+}
+.groupTaskType.is-active .groupTaskType-title i {
+  transform: rotate(-90deg);
 }
