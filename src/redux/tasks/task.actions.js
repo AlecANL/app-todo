@@ -27,9 +27,9 @@ function setTasks(collection) {
 }
 
 export function createNewTask() {
-  return async dispatch => {
+  return async (dispatch, getState) => {
+    const id = getState().auth.id;
     try {
-      const id = 'ABDEF';
       const task = createTask();
       const docRef = await firestore.collection(`${id}/app/tasks`).add(task);
       const addToCollection = addNewTasks(docRef.id, task);
