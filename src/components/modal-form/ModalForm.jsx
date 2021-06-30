@@ -4,6 +4,7 @@ import TagTaskButton from 'components/buttons/tag-task-button/TagTaskButton';
 import Modal from 'components/modal-wrapper/ModalWrapper';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
+import { createNewTask } from 'redux/tasks/task.actions';
 import { showModalAddTask } from 'redux/ui/ui.actions';
 import './modal-form.css';
 
@@ -13,6 +14,7 @@ function ModalForm({ isShowModal }) {
 
   function handleSubmitForm() {
     dispatch(showModalAddTask(false));
+    dispatch(createNewTask());
   }
   return (
     <Modal isShowModal={isShowModal}>

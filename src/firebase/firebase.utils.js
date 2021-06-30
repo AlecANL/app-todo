@@ -16,5 +16,55 @@ firebase.initializeApp(firebaseConfig);
 
 const firestore = firebase.firestore();
 const auth = firebase.auth();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-export { firebase, firestore, auth };
+function singInWithGoogle() {
+  return auth.signInWithPopup(googleAuthProvider);
+}
+
+async function logOut() {
+  return await auth.signOut();
+}
+
+async function singInWithEmailAndPassword(userCredential) {
+  const { email, password } = userCredential;
+  const userLogged = await auth.signInWithEmailAndPassword(email, password);
+  return userLogged;
+}
+
+async function loadAllTasks(id) {
+  const tasksSnap = await firestore.collection(`${id}/app/tasks`).get();
+  const tasks = [];
+  tasksSnap.forEach(task => {
+    tasks.push({
+      id: task.id,
+      ...task.data(),
+    });
+  });
+  console.log(tasks);
+  return tasks;
+}
+
+async function createUser(userCredentials) {
+  const { email, password, name } = userCredentials;
+  const createdUser = await auth.createUserWithEmailAndPassword(
+    email,
+    password
+  );
+  await createdUser.user.updateProfile({
+    displayName: name,
+  });
+
+  return createdUser;
+}
+
+export {
+  firebase,
+  firestore,
+  auth,
+  loadAllTasks,
+  singInWithGoogle,
+  singInWithEmailAndPassword,
+  logOut,
+  createUser,
+};
