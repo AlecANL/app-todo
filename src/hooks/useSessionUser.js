@@ -12,8 +12,8 @@ export function useSessionUser(authHelper = auth) {
   useEffect(() => {
     authHelper.onAuthStateChanged(user => {
       if (user?.uid) {
-        dispatch(login(user));
         dispatch(loadTasks(user.uid));
+        dispatch(login(user));
       }
     });
   }, [dispatch, authHelper]);

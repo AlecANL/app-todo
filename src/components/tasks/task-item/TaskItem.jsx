@@ -2,12 +2,12 @@ import { useDispatch } from 'react-redux';
 import { showModalDetail } from 'redux/ui/ui.actions';
 import './task-item.css';
 
-function TaskItem(task) {
+function TaskItem(taskObj) {
+  console.log(taskObj);
   const dispatch = useDispatch();
-  const { name, id } = task;
+  const { name, id } = taskObj;
 
   function handleShowDetail() {
-    console.log(task);
     dispatch(showModalDetail(true));
   }
   return (

@@ -1,14 +1,6 @@
 import { firestore, loadAllTasks } from 'firebase/firebase.utils';
 import { taskTypes } from './task.types';
 
-export function createTask() {
-  return {
-    date: new Date().getTime(),
-    task: 'new task',
-    taskArea: 'programing',
-  };
-}
-
 function addNewTasks(id, task) {
   return {
     type: taskTypes.ADD_TASK,
@@ -26,11 +18,10 @@ function setTasks(collection) {
   };
 }
 
-export function createNewTask() {
+export function createNewTask(task) {
   return async (dispatch, getState) => {
     const id = getState().auth.id;
     try {
-      const task = createTask();
       const docRef = await firestore.collection(`${id}/app/tasks`).add(task);
       const addToCollection = addNewTasks(docRef.id, task);
       dispatch(addToCollection);

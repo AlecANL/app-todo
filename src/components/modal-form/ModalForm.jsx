@@ -6,22 +6,33 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { createNewTask } from 'redux/tasks/task.actions';
 import { showModalAddTask } from 'redux/ui/ui.actions';
+import { useForm } from 'hooks/useForm';
 import './modal-form.css';
 
 function ModalForm({ isShowModal }) {
   const dispatch = useDispatch();
   const uiState = useSelector(state => state.ui);
+  const [inputValues, setInputValues] = useForm({
+    date: '',
+    task: '',
+    taskArea: uiState.currentSection,
+    subTasks: [],
+  });
 
-  function handleSubmitForm() {
+  function handleSubmitForm(e) {
+    e.preventDefault();
     dispatch(showModalAddTask(false));
-    dispatch(createNewTask());
+    dispatch(createNewTask(inputValues));
   }
   return (
     <Modal isShowModal={isShowModal}>
-      <form className="modalForm">
+      <form className="modalForm" onSubmit={handleSubmitForm}>
         <input
           placeholder="example., Read blog to Leonidas Esteban"
           type="text"
+          name="task"
+          value={inputValues.task}
+          onChange={setInputValues}
         />
       </form>
       <div className="modalForm-content">

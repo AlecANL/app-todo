@@ -14,20 +14,20 @@ import { showModalAddTask } from 'redux/ui/ui.actions';
 import IconArrowLeft from 'assets/arrow-left.svg';
 import './task.css';
 
-const fakeData = [
-  {
-    id: 1,
-    name: 'to do my work',
-    date: new Date().getTime(),
-    subTasks: [],
-  },
-  {
-    id: 2,
-    name: 'Walk to my job',
-    date: new Date().getTime(),
-    subTasks: [],
-  },
-];
+// const fakeData = [
+//   {
+//     id: 1,
+//     name: 'to do my work',
+//     date: new Date().getTime(),
+//     subTasks: [],
+//   },
+//   {
+//     id: 2,
+//     name: 'Walk to my job',
+//     date: new Date().getTime(),
+//     subTasks: [],
+//   },
+// ];
 const emptyScreenData = {
   image: IsEmptyScreen,
   message: {
@@ -39,6 +39,7 @@ const emptyScreenData = {
 function Task() {
   const dispatch = useDispatch();
   const stateModals = useSelector(state => state.ui);
+  const { collections } = useSelector(state => state.tasks);
 
   function handleShowModalAddTask() {
     dispatch(showModalAddTask(true));
@@ -50,8 +51,10 @@ function Task() {
       <main className="task">
         <Wrapper>
           <div className="task-content">
-            {fakeData.length < 0 && <EmptyCollections {...emptyScreenData} />}
-            {fakeData.length > 0 && <TaskList collections={fakeData} />}
+            {collections.length <= 0 && (
+              <EmptyCollections {...emptyScreenData} />
+            )}
+            {collections.length > 0 && <TaskList collections={collections} />}
             <ModalForm isShowModal={stateModals.showModalAddTask} />
             <ModalDetail isShowModal={stateModals.showModalDetail} />
             <ModalSubTask isShowModal={stateModals.showModalSubTask} />

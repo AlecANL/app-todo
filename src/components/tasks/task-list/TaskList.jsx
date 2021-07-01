@@ -10,7 +10,7 @@ function TaskList({ collections }) {
         {collections.map(task => (
           <TaskItem
             key={task?.id}
-            name={task.name}
+            name={task.task}
             id={task.id}
             handleShowDetail={handleShowDetail}
           />
