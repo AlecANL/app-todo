@@ -7,7 +7,7 @@ import './App.css';
 function App() {
   return (
     <Provider store={store}>
-      <AppRoute />;
+      <AppRoute />
     </Provider>
   );
 }

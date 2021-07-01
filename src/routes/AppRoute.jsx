@@ -1,5 +1,6 @@
 import { auth } from 'firebase/firebase.utils';
 import { useSessionUser } from 'hooks/useSessionUser';
+import LoadingPage from 'pages/Loading/LoadingPage';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from '../pages/Home/Home';
 import NotFound from '../pages/NotFound/NotFound';
@@ -11,7 +12,7 @@ import PublicRoute from './PublicRoute';
 function AppRoute() {
   const { isLoadingPage, isUserLogged } = useSessionUser(auth);
 
-  if (isLoadingPage) return <h1>Loading...</h1>;
+  if (isLoadingPage) return <LoadingPage />;
 
   return (
     <>
