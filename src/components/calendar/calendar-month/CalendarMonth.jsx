@@ -17,7 +17,12 @@ function CalendarMonth({ month, year, days, monthPosition }) {
       </div>
       <div className="grid-days">
         {days.map(day => (
-          <CalendarDay key={day} day={day} monthPosition={monthPosition} />
+          <CalendarDay
+            key={day}
+            day={day}
+            month={month}
+            monthPosition={monthPosition}
+          />
         ))}
       </div>
     </article>

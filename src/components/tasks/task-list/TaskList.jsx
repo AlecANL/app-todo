@@ -12,6 +12,9 @@ function TaskList({ collections }) {
             key={task?.id}
             name={task.task}
             id={task.id}
+            date={task.date}
+            isCompleted={task.isCompleted}
+            subTasks={task.subTasks}
             handleShowDetail={handleShowDetail}
           />
         ))}

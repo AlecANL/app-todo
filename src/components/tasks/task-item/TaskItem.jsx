@@ -1,13 +1,14 @@
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { showModalDetail } from 'redux/ui/ui.actions';
 import './task-item.css';
 
 function TaskItem(taskObj) {
-  console.log(taskObj);
   const dispatch = useDispatch();
   const { name, id } = taskObj;
 
   function handleShowDetail() {
+    console.log(taskObj);
     dispatch(showModalDetail(true));
   }
   return (
@@ -21,4 +22,4 @@ function TaskItem(taskObj) {
   );
 }
 
-export default TaskItem;
+export default React.memo(TaskItem);

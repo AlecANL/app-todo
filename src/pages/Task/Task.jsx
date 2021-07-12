@@ -13,6 +13,8 @@ import FloatButton from 'components/float-button/FloatButton';
 import { showModalAddTask } from 'redux/ui/ui.actions';
 import IconArrowLeft from 'assets/arrow-left.svg';
 import './task.css';
+import Loader from 'components/loader/Loader';
+// import { useEffect } from 'react';
 
 // const fakeData = [
 //   {
@@ -50,11 +52,16 @@ function Task() {
       <Header title={stateModals.currentSection} icon={IconArrowLeft} />
       <main className="task">
         <Wrapper>
+          {!stateModals.hasCollection && <Loader />}
           <div className="task-content">
-            {collections.length <= 0 && (
+            {stateModals.hasCollection && collections.length <= 0 ? (
               <EmptyCollections {...emptyScreenData} />
-            )}
-            {collections.length > 0 && <TaskList collections={collections} />}
+            ) : null}
+
+            {stateModals.hasCollection && collections.length > 0 ? (
+              <TaskList collections={collections} />
+            ) : null}
+
             <ModalForm isShowModal={stateModals.showModalAddTask} />
             <ModalDetail isShowModal={stateModals.showModalDetail} />
             <ModalSubTask isShowModal={stateModals.showModalSubTask} />

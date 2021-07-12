@@ -12,15 +12,19 @@ import './modal-form.css';
 function ModalForm({ isShowModal }) {
   const dispatch = useDispatch();
   const uiState = useSelector(state => state.ui);
+  const { current_task_date: date } = useSelector(state => state.tasks);
+
   const [inputValues, setInputValues] = useForm({
-    date: '',
+    date: date || null,
     task: '',
     taskArea: uiState.currentSection,
     subTasks: [],
+    isCompleted: false,
   });
 
   function handleSubmitForm(e) {
     e.preventDefault();
+    console.log(inputValues);
     dispatch(showModalAddTask(false));
     dispatch(createNewTask(inputValues));
   }

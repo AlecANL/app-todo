@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from 'redux/auth/auth.actions';
 import { loadTasks } from 'redux/tasks/task.actions';
+import { hasCollectionAction } from 'redux/ui/ui.actions';
 
 export function useSessionUser(authHelper = auth) {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ export function useSessionUser(authHelper = auth) {
   useEffect(() => {
     authHelper.onAuthStateChanged(user => {
       if (user?.uid) {
+        dispatch(hasCollectionAction(true));
         dispatch(loadTasks(user.uid));
         dispatch(login(user));
       }

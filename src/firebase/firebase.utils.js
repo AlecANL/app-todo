@@ -33,15 +33,16 @@ async function singInWithEmailAndPassword(userCredential) {
 }
 
 async function loadAllTasks(id) {
-  const tasksSnap = await firestore.collection(`${id}/app/tasks`).get();
   const tasks = [];
-  tasksSnap.forEach(task => {
+  const taskRef = await firestore.collection(`${id}/app/tasks`).get();
+
+  taskRef.forEach(task => {
     tasks.push({
-      id: task.id,
       ...task.data(),
+      id: task.id,
     });
   });
-  console.log(tasks);
+
   return tasks;
 }
 

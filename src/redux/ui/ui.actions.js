@@ -7,6 +7,13 @@ export function showModalCalendar(isShow) {
   };
 }
 
+export function hasCollectionAction(isCollection) {
+  return {
+    type: types.HAS_COLLECTION,
+    payload: isCollection,
+  };
+}
+
 export function showModalAddTask(isShow) {
   return {
     type: types.SHOW_MODAL_ADD_TASK,

@@ -4,4 +4,6 @@ export const taskTypes = {
   DELETE_TASK: '[TASK] DELETE_TASK',
   EDIT_TASK: '[TASK] EDIT_TASK',
   LOAD_TASKS: '[TASK] LOAD_TASKS',
+  SET_DATE: '[TASK] SET_DATE',
+  UNSET_DATE: '[TASK] UNSET_TASK',
 };

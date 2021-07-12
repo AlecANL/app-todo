@@ -5,6 +5,7 @@ const initialState = {
   showModalDetail: false,
   showModalAddTask: false,
   showModalSubTask: false,
+  hasCollection: false,
   currentSection: localStorage.getItem('current_section') || 'programing',
 };
 
@@ -34,6 +35,11 @@ export function uiReducer(state = initialState, action) {
       return {
         ...state,
         currentSection: action.payload,
+      };
+    case types.HAS_COLLECTION:
+      return {
+        ...state,
+        hasCollection: action.payload,
       };
     default:
       return state;

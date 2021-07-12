@@ -1,5 +1,6 @@
 import { firestore, loadAllTasks } from 'firebase/firebase.utils';
 import { taskTypes } from './task.types';
+import { hasCollectionAction } from 'redux/ui/ui.actions';
 
 function addNewTasks(id, task) {
   return {
@@ -32,13 +33,30 @@ export function createNewTask(task) {
 }
 
 export function loadTasks(id) {
-  return async dispatch => {
+  return async (dispatch, getState) => {
+    dispatch(hasCollectionAction(false));
     try {
       const tasks = await loadAllTasks(id);
       const tasksLoaded = setTasks(tasks);
       dispatch(tasksLoaded);
+      console.log(tasks);
+      dispatch(hasCollectionAction(true));
+      console.log(!tasks.length);
+      // if() {}
     } catch (error) {
       console.warn(error);
     }
+  };
+}
+
+export function setDate(date) {
+  return {
+    type: taskTypes.SET_DATE,
+    payload: date,
+  };
+}
+export function unSetDate() {
+  return {
+    type: taskTypes.UNSET_DATE,
   };
 }
