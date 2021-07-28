@@ -29,3 +29,6 @@
 .modalDetail .task .taskItem {
   padding-inline-start: 0;
 }
+.modalDetail .task {
+  margin-block: 1rem;
+}

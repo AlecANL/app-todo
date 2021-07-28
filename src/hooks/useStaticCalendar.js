@@ -144,5 +144,6 @@ export function useStaticCalendar() {
     buildCalendar,
     handleCalendarDay,
     weekDays,
+    formatDate,
   };
 }

@@ -1,12 +1,13 @@
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import CalendarButton from 'components/buttons/calendar-button/CalendarButton';
 import SubmitButton from 'components/buttons/submit-button/submitButton';
 import TagTaskButton from 'components/buttons/tag-task-button/TagTaskButton';
 import Modal from 'components/modal-wrapper/ModalWrapper';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { createNewTask } from 'redux/tasks/task.actions';
-import { showModalAddTask } from 'redux/ui/ui.actions';
 import { useForm } from 'hooks/useForm';
+import { createNewTask, unSetDate } from 'redux/tasks/task.actions';
+import { showModalAddTask } from 'redux/ui/ui.actions';
 import './modal-form.css';
 
 function ModalForm({ isShowModal }) {
@@ -14,24 +15,37 @@ function ModalForm({ isShowModal }) {
   const uiState = useSelector(state => state.ui);
   const { current_task_date: date } = useSelector(state => state.tasks);
 
-  const [inputValues, setInputValues] = useForm({
-    date: date || null,
+  const [inputValues, setInputValues, reset] = useForm({
     task: '',
-    taskArea: uiState.currentSection,
-    subTasks: [],
-    isCompleted: false,
   });
+
+  function createTask() {
+    return {
+      date,
+      task: inputValues.task,
+      taskArea: uiState.currentSection,
+      subTasks: [],
+      isCompleted: false,
+    };
+  }
+
+  function defaultForm() {
+    reset();
+    dispatch(unSetDate());
+  }
 
   function handleSubmitForm(e) {
     e.preventDefault();
-    console.log(inputValues);
+    const task = createTask();
     dispatch(showModalAddTask(false));
-    dispatch(createNewTask(inputValues));
+    dispatch(createNewTask(task));
+    defaultForm();
   }
   return (
     <Modal isShowModal={isShowModal}>
       <form className="modalForm" onSubmit={handleSubmitForm}>
         <input
+          autoComplete="off"
           placeholder="example., Read blog to Leonidas Esteban"
           type="text"
           name="task"
@@ -40,7 +54,7 @@ function ModalForm({ isShowModal }) {
         />
       </form>
       <div className="modalForm-content">
-        <CalendarButton />
+        <CalendarButton {...date} />
         <TagTaskButton name={uiState.currentSection} />
         <SubmitButton submitForm={handleSubmitForm} />
       </div>

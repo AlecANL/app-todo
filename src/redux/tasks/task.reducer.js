@@ -1,8 +1,12 @@
 import { taskTypes } from './task.types';
 
+const defaultDate = new Date();
+const formatMonth = defaultDate.toLocaleDateString('en-us', { month: 'long' });
+const formatDay = defaultDate.toLocaleDateString('en-us', { day: 'numeric' });
+
 const initialState = {
   collections: [],
-  current_task_date: null,
+  current_task_date: { day: formatDay, month: formatMonth },
   activeTask: null,
 };
 
@@ -26,7 +30,12 @@ export function taskReducer(state = initialState, action) {
     case taskTypes.UNSET_DATE:
       return {
         ...state,
-        current_task_date: null,
+        current_task_date: action.payload,
+      };
+    case taskTypes.ACTIVE_TASK:
+      return {
+        ...state,
+        activeTask: action.payload,
       };
     default:
       return state;

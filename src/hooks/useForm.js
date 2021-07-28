@@ -10,5 +10,9 @@ export function useForm(initialState = {}) {
     });
   }
 
-  return [values, handleInputChange];
+  function reset() {
+    setInputValues(initialState);
+  }
+
+  return [values, handleInputChange, reset];
 }

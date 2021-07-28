@@ -23,6 +23,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* max-block-size: 100vh;
   overflow: hidden; */
+  min-block-size: 100vh !important;
   overflow: hidden;
 }
 

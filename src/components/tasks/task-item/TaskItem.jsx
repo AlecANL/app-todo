@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { setActiveTask } from 'redux/tasks/task.actions';
 import { showModalDetail } from 'redux/ui/ui.actions';
 import './task-item.css';
 
@@ -9,6 +10,7 @@ function TaskItem(taskObj) {
 
   function handleShowDetail() {
     console.log(taskObj);
+    dispatch(setActiveTask(taskObj));
     dispatch(showModalDetail(true));
   }
   return (

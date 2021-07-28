@@ -41,3 +41,10 @@ export function changeView(viewName) {
     payload: viewName,
   };
 }
+
+export function loading(isLoading) {
+  return {
+    type: types.SHOW_LOADING,
+    payload: isLoading,
+  };
+}

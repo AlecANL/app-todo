@@ -40,3 +40,8 @@
   border-color: var(--soft-blue);
   color: var(--soft-blue);
 }
+.modal-header .date {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-inline-start: 1rem;
+}

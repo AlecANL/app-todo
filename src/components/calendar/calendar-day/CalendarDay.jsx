@@ -1,6 +1,7 @@
 import { useStaticCalendar } from 'hooks/useStaticCalendar';
 import { useDispatch } from 'react-redux';
 import { setDate } from 'redux/tasks/task.actions';
+import './calendar-day.css';
 
 function CalendarDay({ month, day, monthPosition }) {
   const dispatch = useDispatch();

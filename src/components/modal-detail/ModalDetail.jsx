@@ -1,7 +1,7 @@
 import CalendarButton from 'components/buttons/calendar-button/CalendarButton';
 import Modal from 'components/modal-wrapper/ModalWrapper';
 import SubTaskList from 'components/subTasks/subTasks-list/SubTaskList';
-import TaskItem from 'components/tasks/task-item/TaskItem';
+// import TaskItem from 'components/tasks/task-item/TaskItem';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { showModalDetail, showModalSubTak } from 'redux/ui/ui.actions';
@@ -20,23 +20,12 @@ const fakeCollection = [
     id: 12,
     name: 'pokemon 2',
   },
-  {
-    id: 13,
-    name: 'pokemon 2',
-  },
-  {
-    id: 5,
-    name: 'pokemon 2',
-  },
-  {
-    id: 6,
-    name: 'pokemon 2',
-  },
 ];
 
 function ModalDetail({ isShowModal }) {
   const dispatch = useDispatch();
   const uiState = useSelector(state => state.ui);
+  const taskState = useSelector(state => state.tasks);
 
   function handleCloseModal() {
     dispatch(showModalDetail(false));
@@ -59,9 +48,9 @@ function ModalDetail({ isShowModal }) {
           </button>
         </div>
         <div className="task">
-          <TaskItem name="hello world" id={25} />
+          <span>{taskState?.activeTask?.name}</span>
         </div>
-        <CalendarButton />
+        <CalendarButton {...taskState?.activeTask?.date} />
         <div className="modal-subTasks">
           <h4>SubTasks</h4>
           <SubTaskList collection={fakeCollection} />

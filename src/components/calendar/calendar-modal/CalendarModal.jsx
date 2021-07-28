@@ -34,7 +34,12 @@ function CalendarModal({ isShowModal }) {
     <Modal isShowModal={isShowModal}>
       <div className="calendarModal">
         <div className="modal-header">
-          <span>Set Task</span>
+          <div>
+            <span>Set Task:</span>
+            <span className="date">
+              {date?.day} - {date?.month}
+            </span>
+          </div>
           <button className="btn-calendar" onClick={handleCloseModal}>
             <i className="icon-closeSquare "></i>
           </button>
