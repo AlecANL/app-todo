@@ -32,3 +32,19 @@
 .modalDetail .task {
   margin-block: 1rem;
 }
+.task-date {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  inline-size: 6.25rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--grey);
+  color: var(--grey);
+}
+.task-date p {
+  margin: 0;
+  display: flex;
+  gap: 0.25rem;
+}

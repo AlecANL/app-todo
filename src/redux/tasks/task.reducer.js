@@ -37,6 +37,14 @@ export function taskReducer(state = initialState, action) {
         ...state,
         activeTask: action.payload,
       };
+    case taskTypes.DELETE_TASK:
+      return {
+        ...state,
+        activeTask: null,
+        collection: state.collections.filter(
+          task => task.id !== action.payload
+        ),
+      };
     default:
       return state;
   }

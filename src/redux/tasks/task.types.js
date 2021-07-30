@@ -6,4 +6,5 @@ export const taskTypes = {
   LOAD_TASKS: '[TASK] LOAD_TASKS',
   SET_DATE: '[TASK] SET_DATE',
   UNSET_DATE: '[TASK] UNSET_DATE',
+  ADD_SUB_TASK: '[TASK] ADD_SUB_TASK',
 };

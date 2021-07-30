@@ -1,6 +1,10 @@
 import { firestore, loadAllTasks } from 'firebase/firebase.utils';
 import { taskTypes } from './task.types';
-import { hasCollectionAction, loading } from 'redux/ui/ui.actions';
+import {
+  hasCollectionAction,
+  loading,
+  showModalDetail,
+} from 'redux/ui/ui.actions';
 
 function addNewTasks(id, task) {
   return {
@@ -8,6 +12,17 @@ function addNewTasks(id, task) {
     payload: {
       id,
       ...task,
+    },
+  };
+}
+
+function addNewSubTask(idTask, idSubtask, subTask) {
+  return {
+    type: taskTypes.ADD_SUB_TASK,
+    payload: {
+      idTask,
+      idSubtask,
+      ...subTask,
     },
   };
 }
@@ -72,5 +87,32 @@ export function setActiveTask(task) {
   return {
     type: taskTypes.ACTIVE_TASK,
     payload: task,
+  };
+}
+
+export function deleteTaskFromDB(idTask) {
+  return async (dispatch, getState) => {
+    const { uid } = getState().auth;
+    await firestore.doc(`${uid}/app/tasks/${idTask}`).delete();
+    dispatch(deleteTask(idTask));
+    dispatch(showModalDetail(false));
+  };
+}
+
+export function addSubTaskToDB(idTask, subTask) {
+  return async (_, getState) => {
+    const { id } = getState().auth;
+    const docRef = await firestore
+      .collection(`${id}/app/tasks/${idTask}/subTasks`)
+      .add(subTask);
+    const addToSubTaskCollection = addNewSubTask(idTask, docRef.id, subTask);
+    console.log(addToSubTaskCollection);
+  };
+}
+
+function deleteTask(id) {
+  return {
+    type: taskTypes.DELETE_TASK,
+    payload: id,
   };
 }
